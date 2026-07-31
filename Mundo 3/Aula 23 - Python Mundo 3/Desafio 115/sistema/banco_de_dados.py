@@ -1,3 +1,4 @@
+import json
 from validacao import leiaNome, leiaInt
 from menu import linha
 dados = []
@@ -23,23 +24,19 @@ def listar():
 
 def carregar():
     global dados
-
-    with open("dados.txt", "r") as arquivo:
-        dados = arquivo.read()
+    try:
+        with open("dados.json", "r", encoding="utf-8") as arquivo:
+            dados = json.load(arquivo)
+    except: 
+        return
 
 def salvar():
     global dados
 
-    with open("dados.txt", "w", encoding = "utf-8") as arquivo:
-        arquivo.write(dados)
+    with open("dados.json", "w", encoding = "utf-8") as arquivo:
+        json.dump(dados, arquivo, indent=4, ensure_ascii=False)
 
 def deletar():
     global dados
 
     dados.clear()
-
-
-cadastrar()
-cadastrar()
-cadastrar()
-listar()
