@@ -5,8 +5,9 @@ def verificaSite(link):
     
     try:
         urllib.request.urlopen(req, timeout=10)
-        print("Conectado")
     except urllib.error.HTTPError as e:
         print(f"O site respondeu, mas rejeitou o Python. Código do erro: {e.code}")
     except urllib.error.URLError:
         print("Erro de conexão (Sem internet ou DNS inválido)")
+    else:
+        print("Conectado")
