@@ -59,4 +59,3 @@ def deletar():
     global dados
 
     dados.clear()
-    salvar()
