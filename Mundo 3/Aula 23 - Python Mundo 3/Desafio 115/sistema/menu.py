@@ -1,16 +1,13 @@
-import banco_de_dados
-
-def linha(caractere):
-    return caractere*54
+from . import banco_de_dados
 
 def menu():
     banco_de_dados.carregar()
 
     while True:
 
-        opcao = input(f"""\n{linha('-')}
+        opcao = input(f"""\n{banco_de_dados.linha('-')}
                 ALUMIAR APP (Menu Inicial)
-{linha('-')}
+{banco_de_dados.linha('-')}
 
 1 - Cadastrar
 2 - Listar cadastros

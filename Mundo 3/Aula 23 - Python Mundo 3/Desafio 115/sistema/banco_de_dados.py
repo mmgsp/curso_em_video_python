@@ -1,8 +1,19 @@
 import json
-from validacao import leiaNome, leiaInt, leiaCod
-from menu import linha
+from .validacao import leiaNome, leiaInt
 
 dados = []
+
+def linha(caractere):
+    return caractere*54
+
+def leiaCod(str_entrada):
+        
+    cod = leiaInt("Digite o código do cadastro que você deseja alterar: ")
+    if 0<=cod<len(dados):
+        return cod
+    else:
+        print("\033[31mErro! Código inválido...\033[0m")
+        return leiaCod(str_entrada)
 
 def cadastrar():
     global dados
@@ -13,7 +24,6 @@ def cadastrar():
     dados.append(pessoa)
 
 def listar():
-    global dados
 
     if not dados:
         print("0 usuários cadastrados...")

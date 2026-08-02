@@ -1,1 +1,3 @@
-from sistema import menu, banco_de_dados
+from sistema.menu import menu
+
+menu()
