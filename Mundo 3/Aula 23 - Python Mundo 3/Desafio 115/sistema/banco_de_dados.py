@@ -58,4 +58,30 @@ def salvar():
 def deletar():
     global dados
 
-    dados.clear()
+    if not dados:
+        print("0 usuários cadastrados...")
+    else:
+        opcao = leiaInt("\n1 - Deletar um cadastro específico\n2 - Deletar TODO o banco de dados\nEscolha uma opção (1 ou 2): ")
+
+        if opcao == 1:
+            listar()
+            cod = leiaCod("Digite o código do cadastro que você deseja deletar: ")
+
+            confirmacao = input(f"Tem certeza que deseja apagar o cadastro {dados[cod]} [S/N]?  ").strip().upper()
+            if confirmacao == 'S':
+
+                pessoa_removida = dados.pop(cod)
+                print(f"Cadastro de {pessoa_removida['Nome']} deletado com sucesso!")
+            else:
+                print("Operação de exclusão cancelada.")
+
+        elif opcao == 2:
+            confirmacao = input("Tem certeza que deseja apagar TODOS os cadastros? [S/N]: ").strip().upper()
+            if confirmacao == 'S':
+                dados.clear()
+                print("Todos os cadastros foram deletados com sucesso!")
+            else:
+                print("Operação de exclusão cancelada.")
+                
+        else:
+            print("Operação cancelada...")
