@@ -5,6 +5,7 @@ from menu import linha
 dados = []
 
 def cadastrar():
+    global dados
 
     pessoa = {}
     pessoa["Nome"] = leiaNome("Nome: ")
@@ -23,6 +24,8 @@ def listar():
         print(f"{linha('-')}")
 
 def atualizar():
+    global dados
+
     if not dados:
         print("0 usuários cadastrados...")
     else:
