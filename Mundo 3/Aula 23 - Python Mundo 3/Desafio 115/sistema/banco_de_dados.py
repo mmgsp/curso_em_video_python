@@ -1,5 +1,4 @@
 import json
-from time import sleep
 from validacao import leiaNome, leiaInt, leiaCod
 from menu import linha
 
