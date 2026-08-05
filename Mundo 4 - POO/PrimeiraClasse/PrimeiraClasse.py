@@ -1,7 +1,7 @@
 class Pessoa:
-    def __init__(self):
-        self.nome = ""
-        self.idade = 0
+    def __init__(self, nome="", idade=0):
+        self.nome = nome
+        self.idade = idade
 
     def aniversario(self):
         self.idade += 1
@@ -9,9 +9,7 @@ class Pessoa:
     def resumo(self):
         return f"{self.nome} tem {self.idade} anos."
 
-p1 = Pessoa()
-p1.nome = "Gabriel"
-p1.idade = 23
+p1 = Pessoa("Gabriel", 23)
 
 pessoa_vazio = Pessoa()
 
